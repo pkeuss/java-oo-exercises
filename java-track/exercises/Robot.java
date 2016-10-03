@@ -37,10 +37,16 @@ public class Robot {
 	
 	public Robot(String name, int xCoord, int yCoord, int speed, int dir) {
 		this.Name = name;
-		this.Orientation = dir;
 		this.X = xCoord;
 		this.Y = yCoord;
 		this.Speed = speed;
+		if((dir >= 0) && (dir <= 3)){
+			this.Orientation = dir;
+		}
+		else{
+			this.Orientation = 0;
+		}
+			
 	}
 	
 
@@ -189,7 +195,9 @@ public class Robot {
 	public String howFar(Robot r) {
 		int x = this.X - r.getX();
 		int y = this.Y - r.getY();
-		return (this.Name + " is " + x + " away on the x-plane and is " + y + " away on the y-plane, from " + r.getName());
+		double c = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+		return (this.Name + " is " + x + " away on the x-plane and is " + y + " away on the y-plane, from " + r.getName() +
+				"\nOr " + c + " units away as the crow flies");
 	}
 	
 	public String toString() {
