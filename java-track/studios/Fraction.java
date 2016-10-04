@@ -21,7 +21,7 @@ public class Fraction {
 	public Fraction sum(Fraction f){
 		int newNum = 0;
 		if (this.denom == f.denom){
-			newNum = this.num + f.denom;
+			newNum = this.num + f.getNum();
 			return new Fraction(newNum, this.denom);
 		}
 		int newD = this.denom * f.denom;

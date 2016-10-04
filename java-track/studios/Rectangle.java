@@ -56,7 +56,20 @@ public class Rectangle {
 	return "Rectangle with " + this.length + " length and " + this.width + " width";
 	}
 	
-	
+	/**
+	 * @return the length
+	 */
+	public double getLength() {
+		return length;
+	}
+
+	/**
+	 * @return the width
+	 */
+	public double getWidth() {
+		return width;
+	}
+
 	public static void main(String[] args) {
 	// TODO Auto-generated method stub
 	boolean small = false;
