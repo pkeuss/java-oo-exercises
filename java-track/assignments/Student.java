@@ -77,7 +77,9 @@ public class Student {
 	 * based on the price of one credit costing 1333.333333
 	 */
 	public double computeTuition(){
-		/*This is the way i think it should be done:
+		/*This is the way i think it should be done
+		 * but i get rounding errors on the junit test
+		 * when implemented this way:
 		 * 
 		DecimalFormat df = new DecimalFormat("#######.00");
 		double paid = (this.Credits / 15) * 20000;
@@ -261,19 +263,6 @@ public class Student {
 				this.getClassStanding() + "\nCredits Earned: " + this.getCredits() + "\nGPA: " + this.getGPA());
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Student p = new Student("Paul", "Keuss", 123456);
-		Student o = new Student("Ozzie", "Smith", 122334);
-		Student b = new Student("Bob", "Gibson", 133334);
-		p.setCredits(3);
-		System.out.println(p.computeTuition());
-		p.setCredits(15);
-		System.out.println(p.computeTuition());
-		p.setCredits(30);
-		System.out.println(p.computeTuition());
-		System.out.println(1/15);
-		System.out.println(14%15);
-	}
+
 
 }

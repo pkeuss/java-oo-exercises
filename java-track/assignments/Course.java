@@ -136,21 +136,5 @@ public class Course {
 		return ("Course: " + this.name + "\nCredits: " + this.credits);
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Student p = new Student("Paul", "Keuss", 123456);
-		Student o = new Student("Ozzie", "Smith", 122334);
-		Student b = new Student("Bob", "Gibson", 133334);
-		Course c = new Course("ZZZ", 3, 2);
-		boolean added = c.addStudent(p);
-		System.out.println(c.generateRoster());
-		System.out.println(c.rosterOfStudents[1].getFullName());
-		added = c.addStudent(o);
-		System.out.println(c.generateRoster());
-		added = c.addStudent(p);
-		boolean added1 = c.addStudent(b);
-		System.out.println(c.remainingSeats);
-		System.out.println(c.generateRoster());
-		System.out.println(c);
-	}
+	
 }
