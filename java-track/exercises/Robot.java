@@ -10,6 +10,7 @@ public class Robot {
 	 *  3 = West
 	 */
 	private int X, Y, Speed, Orientation;
+	private RobotBehavior behavior;
 	
 	public Robot(String name) {
 		this.Name = name;
@@ -203,6 +204,10 @@ public class Robot {
 	public String toString() {
 		return("Name: " + this.Name + "\nPosition: (" + this.X + "," + this.Y + ")\nSpeed: " +
 					this.Speed + "\nOrientation: " + this.getOrientation(true));
+	}
+	
+	public void setBehavior(RobotBehavior behave){
+		this.behavior = behave;
 	}
 
 	public static void main(String[] args) {
