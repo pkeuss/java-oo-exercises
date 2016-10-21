@@ -22,10 +22,7 @@ public class TestUser {
 		assertFalse("IsValidPassword: False Statement 2", t.isValidPassword(notPass));
 	}
 	
-	/*
-	 * The Users u and t don't exist for subsequent tests after the first one, why?
-	 * I get a null pointer exception if i don't create them
-	 */
+	
 	@Test
 	public void testToString() {
 		assertTrue("ToString: Test 1 is not working", u.toString().contains("thatGuy"));
@@ -68,10 +65,9 @@ public class TestUser {
 
 	@Test
 	public void testGetUid() {
-		//this is the 11th  and 12th User that has been created during this junit test
-		//so this changes a lot what can i do to actually test it within a Junit
-		assertEquals("getUid: Test 1 is not working", u.getUid(), 11);
-		assertEquals("getUid: Test 1 is not working", t.getUid(), 12);
+		//This changes how do i keep it nailed down
+		assertEquals("getUid: Test 1 is not working", u.getUid(), 13);
+		assertEquals("getUid: Test 1 is not working", t.getUid(), 14);
 	}
 
 }
