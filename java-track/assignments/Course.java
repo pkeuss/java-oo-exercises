@@ -147,7 +147,27 @@ public class Course {
 		return allCourses;
 	}
 	
-	
+	public boolean equals(Course c){
+		boolean equal = true;
+		Student[] compare = c.getRosterOfStudents();
+		
+		if(this.getName().equals(c.getName())){
+			if(compare.length == this.rosterOfStudents.length){
+				for(int i = 0; i < compare.length; i++){
+					if(!compare[i].equals(this.rosterOfStudents[i])){
+						equal = false;
+					}
+				}
+			}
+			else{
+				equal = false;
+			}
+		}
+		else{
+			equal = false;
+		}
+		return equal;
+	}
 
 	
 }

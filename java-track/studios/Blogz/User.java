@@ -54,7 +54,6 @@ public class User extends Entity{
 	 */
 	public boolean isValidPassword(String password){
 		String hashCheck = User.hashPassword(password);
-		
 		if(hashCheck.equals(this.hashedPassword)){
 			return true;
 		}
@@ -116,6 +115,13 @@ public class User extends Entity{
 		else{
 			throw new IllegalArgumentException();
 		}
+	}
+	
+	public boolean equals(User u){
+		if(this.username.equals(u.getUsername())){
+			return true;
+		}
+		return false;
 	}
 	
 	public static void main(String[] args){

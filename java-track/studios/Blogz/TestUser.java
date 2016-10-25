@@ -7,6 +7,7 @@ import org.junit.Test;
 public class TestUser {
 	
 	User u = new User("thatGuy", "Pass");
+	User u1 = new User("thatGuy", "Pass");
 	User t = new User("huh23", "one1");
 
 	
@@ -65,8 +66,14 @@ public class TestUser {
 	@Test
 	public void testGetUid() {
 		//This changes how do i keep it nailed down
-		assertEquals("getUid: Test 1 is not working", u.getUid(), 13);
-		assertEquals("getUid: Test 1 is not working", t.getUid(), 14);
+		assertEquals("getUid: Test 1 is not working", u.getUid(), 22);
+		assertEquals("getUid: Test 1 is not working", t.getUid(), 24);
+	}
+	
+	@Test
+	public void testEquals(){
+		assertTrue("Equals: Test true not working", u.equals(u1));
+		assertFalse("Equals: Test false #1 is not working", u.equals(t));
 	}
 
 }

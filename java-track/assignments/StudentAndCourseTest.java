@@ -149,7 +149,18 @@ public class StudentAndCourseTest extends TestCase {
 		}
 	}
 
-
+	@Test
+	public void testStudentEquals() {
+		Student s = new Student("Paul", "Smith", 000001);
+		Student s1 = new Student("Paul", "Smith", 000001);
+		Student s2 = new Student("Paul", "Smith", 000000);
+		Student s3 = new Student("Pablo", "Smith", 000001);
+		Student s4 = new Student("Paul", "Smitty", 000001);
+		assertTrue("Equals: True doesn't work", s.equals(s1));
+		assertFalse("Equals: False #1 doesn't work", s.equals(s2));
+		assertFalse("Equals: False #2 doesn't work", s.equals(s3));
+		assertFalse("Equals: False #3 doesn't work", s.equals(s4));
+	}
 
 
 
@@ -250,14 +261,36 @@ public class StudentAndCourseTest extends TestCase {
 			Course c5 = new Course("" + i, c, c);
 			allTestCourses.add(c5);
 		}
-		
+		/*
 		for (int i = 0; i < allTestCourses.size(); i++){
 			System.out.println("\n" + allTestCourses.get(i));
 		}
-		System.out.println("\n" + Course.getAllCourses());
+		System.out.println("\n" + Course.getAllCourses()); */
 		assertTrue("All Courses not present in the Lists", Course.getAllCourses().containsAll(allTestCourses));		
 	}
 
-
+	@Test
+	public void testCourseEquals() {
+		Student s = new Student("Paul", "Smith", 000001);
+		Student s1 = new Student("Paula", "Smith", 000002);
+		Student s2 = new Student("Paul", "Smith", 000003);
+		Course c = new Course("CS100", 1, 2);
+		Course c1 = new Course("CS100", 1, 2);
+		Course c2 = new Course("CS101", 1, 2);
+		Course c3 = new Course("CS100", 1, 2);
+		
+		c.addStudent(s);
+		c.addStudent(s1);
+		c1.addStudent(s);
+		c1.addStudent(s1);
+		c2.addStudent(s);
+		c2.addStudent(s1);
+		c3.addStudent(s);
+		c3.addStudent(s2);
+		
+		assertTrue("Course Equals: True doesn't work", c.equals(c1));
+		assertFalse("Course Equals: False #1 doesn't work", c.equals(c2));
+		assertFalse("Course Equals: False #2 doesn't work", c.equals(c3));	
+	}
 
 }

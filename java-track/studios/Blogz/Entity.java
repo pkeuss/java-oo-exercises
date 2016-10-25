@@ -31,6 +31,10 @@ public abstract class Entity {
 		return i;
 	}
 	
+	public boolean equals(Entity e){
+		return(this.getUid() == e.getUid());
+	}
+	
 	public static void main(String[] args){
 		User e = new User("eek4", "e");
 		User f = new User("eeek5", "e");

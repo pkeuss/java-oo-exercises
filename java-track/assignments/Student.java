@@ -264,7 +264,16 @@ public class Student {
 				this.getClassStanding() + "\nCredits Earned: " + this.getCredits() + "\nGPA: " + this.getGPA());
 	}
 	
-
+	public boolean equals(Student s){
+		if (this.firstName.equals(s.getFirstName())){
+			if (this.lastName.equals(s.getLastName())){
+				if(this.StudentID == s.getStudentID()){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 }
 /*

@@ -77,6 +77,17 @@ public class Post extends Entity{
 		return created;
 	}
 	
-	
+	public boolean equals(Post p){
+		if(this.created.equals(p.created)){
+			if(this.author.equals(p.getAuthor())){
+				if(this.title.equals(p.getTitle())){
+					if(this.body.equals(p.getBody())){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 
 }
