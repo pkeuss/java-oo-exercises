@@ -1,6 +1,7 @@
 package Blogz;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Post extends Entity{
 	
@@ -77,17 +78,31 @@ public class Post extends Entity{
 		return created;
 	}
 	
-	public boolean equals(Post p){
-		if(this.created.equals(p.created)){
-			if(this.author.equals(p.getAuthor())){
-				if(this.title.equals(p.getTitle())){
-					if(this.body.equals(p.getBody())){
-						return true;
-					}
-				}
-			}
+	@Override
+	public boolean equals(Object o){
+		//points to the same thing?
+		if(this == o){
+			return true;
 		}
-		return false;
+		
+		//null check
+		if(o == null){
+			return false;
+		}
+		
+		//check for the same class
+		if(getClass() != o.getClass()){
+			return false;
+		}
+		
+		Post p = (Post) o;
+		
+		//field check
+		return ((Objects.equals(this.created, p.getCreated())) &&
+				(Objects.equals(this.author, p.getAuthor())) &&
+				(Objects.equals(this.title, p.getTitle())) &&
+				(Objects.equals(this.body, p.getBody())));
+		
 	}
 
 }

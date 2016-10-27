@@ -156,10 +156,32 @@ public class StudentAndCourseTest extends TestCase {
 		Student s2 = new Student("Paul", "Smith", 000000);
 		Student s3 = new Student("Pablo", "Smith", 000001);
 		Student s4 = new Student("Paul", "Smitty", 000001);
+		Course c = new Course("CSE131", 1, 2);
+		//self test
+		assertTrue("Equals Self Test #1 is not working", s.equals(s));
+		assertTrue("Equals Self Test #2 is not working", s1.equals(s1));
+		assertTrue("Equals Self Test #3 is not working", s2.equals(s2));
+		assertTrue("Equals Self Test #4 is not working", s3.equals(s3));
+		assertTrue("Equals Self Test #5 is not working", s4.equals(s4));
+		//null test
+		assertFalse("Equals null test #1 not working", s.equals(null));
+		assertFalse("Equals null test #2 not working", s1.equals(null));
+		assertFalse("Equals null test #3 not working", s2.equals(null));
+		assertFalse("Equals null test #4 not working", s3.equals(null));
+		assertFalse("Equals null test #5 not working", s4.equals(null));
+		//Class test
+		assertFalse("Equals Class Test #1 not working", s.equals(c));
+		assertFalse("Equals Class Test #2 not working", s1.equals(c));
+		assertFalse("Equals Class Test #3 not working", s2.equals(c));
+		//Equals
 		assertTrue("Equals: True doesn't work", s.equals(s1));
+		assertTrue("Equals: True doesn't work", s1.equals(s));
 		assertFalse("Equals: False #1 doesn't work", s.equals(s2));
+		assertFalse("Equals: False #1a doesn't work", s2.equals(s));
 		assertFalse("Equals: False #2 doesn't work", s.equals(s3));
+		assertFalse("Equals: False #2a doesn't work", s3.equals(s));
 		assertFalse("Equals: False #3 doesn't work", s.equals(s4));
+		assertFalse("Equals: False #3a doesn't work", s4.equals(s));
 	}
 
 
@@ -288,9 +310,26 @@ public class StudentAndCourseTest extends TestCase {
 		c3.addStudent(s);
 		c3.addStudent(s2);
 		
-		assertTrue("Course Equals: True doesn't work", c.equals(c1));
+		assertTrue("Course Equals: True #1 doesn't work", c.equals(c1));
+		assertTrue("Course Equals: True #2 doesn't work", c1.equals(c));
 		assertFalse("Course Equals: False #1 doesn't work", c.equals(c2));
-		assertFalse("Course Equals: False #2 doesn't work", c.equals(c3));	
+		assertFalse("Course Equals: False #1a doesn't work", c2.equals(c));
+		assertFalse("Course Equals: False #2 doesn't work", c.equals(c3));
+		assertFalse("Course Equals: False #2a doesn't work", c3.equals(c));
+		//Self Test
+		assertTrue("Equals Self Test #1 not working", c.equals(c));
+		assertTrue("Equals Self Test #2 not working", c1.equals(c1));
+		assertTrue("Equals Self Test #3 not working", c2.equals(c2));
+		assertTrue("Equals Self Test #4 not working", c3.equals(c3));
+		//Class Test
+		assertFalse("Equals Class Test #1 not working", c.equals(s));
+		assertFalse("Equals Class Test #2 not working", c1.equals(s1));
+		assertFalse("Equals Class Test #3 not working", c2.equals(s2));
+		//null Test
+		assertFalse("Equals null Test #1 not working", c.equals(null));
+		assertFalse("Equals null Test #2 not working", c1.equals(null));
+		assertFalse("Equals null Test #3 not working", c2.equals(null));
+		assertFalse("Equals null Test #4 not working", c3.equals(null));
 	}
 
 }

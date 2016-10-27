@@ -31,7 +31,26 @@ public abstract class Entity {
 		return i;
 	}
 	
-	public boolean equals(Entity e){
+	@Override
+	public boolean equals(Object o){
+		//points to the same thing?
+		if(this == o){
+			return true;
+		}
+		
+		//null check
+		if(o == null){
+			return false;
+		}
+		
+		//check for the same class
+		if(getClass() != o.getClass()){
+			return false;
+		}
+		
+		Entity e = (Entity) o;
+		
+		//field comparison
 		return(this.getUid() == e.getUid());
 	}
 	

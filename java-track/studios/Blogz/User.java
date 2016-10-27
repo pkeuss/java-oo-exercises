@@ -1,6 +1,7 @@
 package Blogz;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class User extends Entity{
@@ -117,11 +118,26 @@ public class User extends Entity{
 		}
 	}
 	
-	public boolean equals(User u){
-		if(this.username.equals(u.getUsername())){
+	@Override
+	public boolean equals(Object o){
+		//points to the same thing?
+		if(this == o){
 			return true;
 		}
-		return false;
+		
+		//null check
+		if(o == null){
+			return false;
+		}
+		
+		//check for the same class
+		if(getClass() != o.getClass()){
+			return false;
+		}
+		
+		User u = (User) o;
+		
+		return Objects.equals(this.username, u.getUsername());
 	}
 	
 	public static void main(String[] args){
@@ -134,7 +150,7 @@ public class User extends Entity{
 		System.out.println(f.getUid());
 		System.out.println(g.getUid());
 		System.out.println(h.getUid());
-		System.out.println(h.getUsername());
+		System.out.println(h.getClass());
 	}
 	
 

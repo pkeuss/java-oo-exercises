@@ -93,15 +93,28 @@ public class TestPost {
 
 	@Test
 	public void testGetUid() {
-		//will this change each time i turn off my computer??
+		//Remember, every test initializes a new instance of these objects 
+		//and this is the 8th method tested so the uids for this test are 35 - 40
 		assertEquals("getUid: Test 1 is not working", p.getUid(), 38);
 		assertEquals("getUid: Test 2 is not working", q.getUid(), 40);
 	}
 	
 	@Test
 	public void testEquals(){
-		assertTrue("Equals: Test true not working", p.equals(p1));
+		assertTrue("Equals: Test #1 true not working", p.equals(p1));
+		assertTrue("Equals: Test #2 true not working", p1.equals(p));
 		assertFalse("Equals: Test false #1 is not working", p.equals(q));
+		assertFalse("Equals: Test false #2 is not working", p1.equals(q));
+		//Self Test
+		assertTrue("Equals Self: Test #1 is not working", p.equals(p));
+		assertTrue("Equals Self: Test #2 is not working", p1.equals(p1));
+		assertTrue("Equals Self: Test #3 is not working", q.equals(q));
+		//Null check
+		assertFalse("Equals null: Test #1 is not working", p.equals(null));
+		assertFalse("Equals null: Test #2 is not wokring", q.equals(null));
+		//Class Check
+		assertFalse("Equals Class: Test #1 is not wokring", p.equals(u));
+		assertFalse("Equals Class: Test #2 is not working", q.equals(t));
 	}
 
 }

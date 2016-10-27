@@ -147,7 +147,25 @@ public class Course {
 		return allCourses;
 	}
 	
-	public boolean equals(Course c){
+	@Override
+	public boolean equals(Object o){
+		//points to the same thing?
+		if(this == o){
+			return true;
+		}
+		
+		//null check
+		if(o == null){
+			return false;
+		}
+		
+		//check for the same class
+		if(getClass() != o.getClass()){
+			return false;
+		}
+		
+		Course c = (Course) o;
+		
 		boolean equal = true;
 		Student[] compare = c.getRosterOfStudents();
 		

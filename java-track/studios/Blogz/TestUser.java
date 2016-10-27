@@ -9,6 +9,7 @@ public class TestUser {
 	User u = new User("thatGuy", "Pass");
 	User u1 = new User("thatGuy", "Pass");
 	User t = new User("huh23", "one1");
+	Post p = new Post("String1", "String2", u.getUsername());
 
 	
 
@@ -65,15 +66,27 @@ public class TestUser {
 
 	@Test
 	public void testGetUid() {
-		//This changes how do i keep it nailed down
-		assertEquals("getUid: Test 1 is not working", u.getUid(), 22);
-		assertEquals("getUid: Test 1 is not working", t.getUid(), 24);
+		//Remember the objects are created for each test
+		assertEquals("getUid: Test 1 is not working", u.getUid(), 29);
+		assertEquals("getUid: Test 1 is not working", t.getUid(), 31);
 	}
 	
 	@Test
 	public void testEquals(){
-		assertTrue("Equals: Test true not working", u.equals(u1));
+		assertTrue("Equals: Test #1 true not working", u.equals(u1));
+		assertTrue("Equals: Test #2 not working", u1.equals(u));
 		assertFalse("Equals: Test false #1 is not working", u.equals(t));
+		assertFalse("Equals: Test false #2 not working", t.equals(u1));
+		//Test different classes not equal
+		assertFalse("Equals Class: Test #1 not working", u.equals(p));
+		assertFalse("Equals Class: Test #2 not working", p.equals(t));
+		//Self Test
+		assertTrue("Self Equals: Test #1 not working", u.equals(u));
+		assertTrue("Self Equals: Test #2 not working", u1.equals(u1));
+		assertTrue("Self Equals: Test #3 not working", t.equals(t));
+		//Null check
+		assertFalse("Null Equal: Test #1 not working", u.equals(null));
+		assertFalse("Null Equal: Test #2 not working", t.equals(null));
 	}
 
 }
